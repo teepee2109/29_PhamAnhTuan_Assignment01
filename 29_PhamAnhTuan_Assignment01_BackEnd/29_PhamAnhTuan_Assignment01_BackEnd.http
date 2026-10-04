@@ -1,0 +1,6 @@
+@_29_PhamAnhTuan_Assignment01_BackEnd_HostAddress = http://localhost:5205
+
+GET {{_29_PhamAnhTuan_Assignment01_BackEnd_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

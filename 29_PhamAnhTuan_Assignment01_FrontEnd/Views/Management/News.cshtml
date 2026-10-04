@@ -1,0 +1,3 @@
+@model IReadOnlyList<NewsArticleViewModel>
+@{ ViewData["Title"] = "News"; }
+<div class="d-flex justify-content-between mb-3"><h1 class="h3">News management</h1><a class="btn btn-primary" asp-action="CreateNews">Create</a></div><table class="table table-bordered"><thead><tr><th>ID</th><th>Title</th><th>Created</th><th>Status</th><th></th></tr></thead><tbody>@foreach (var n in Model) { <tr><td>@n.NewsArticleId</td><td>@n.NewsTitle</td><td>@n.CreatedDate?.ToString("dd/MM/yyyy")</td><td>@n.NewsStatus</td><td><form asp-action="DeleteNews" method="post" onsubmit="return confirm('Delete this news?')"><input type="hidden" name="id" value="@n.NewsArticleId" /><button class="btn btn-sm btn-danger">Delete</button></form></td></tr> }</tbody></table>

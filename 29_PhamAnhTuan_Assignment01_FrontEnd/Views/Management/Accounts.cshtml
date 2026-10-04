@@ -1,0 +1,4 @@
+@model IReadOnlyList<AccountViewModel>
+@{ ViewData["Title"] = "Accounts"; }
+<div class="d-flex justify-content-between mb-3"><h1 class="h3">Account management</h1><a class="btn btn-primary" asp-action="CreateAccount">Create</a></div>
+<table class="table table-bordered"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th></th></tr></thead><tbody>@foreach (var a in Model) { <tr><td>@a.AccountId</td><td>@a.AccountName</td><td>@a.AccountEmail</td><td>@a.AccountRole</td><td><form asp-action="DeleteAccount" method="post" onsubmit="return confirm('Delete this account?')"><input type="hidden" name="id" value="@a.AccountId" /><button class="btn btn-sm btn-danger">Delete</button></form></td></tr> }</tbody></table>

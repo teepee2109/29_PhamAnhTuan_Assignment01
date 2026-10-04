@@ -1,0 +1,5 @@
+@model IReadOnlyList<NewsArticleViewModel>
+@{ ViewData["Title"] = "News report"; }
+<h1 class="h3 mb-3">News report</h1>
+<form asp-action="Report" method="post" class="row g-2 mb-4"><div class="col-md-4"><label>Start date</label><input type="date" name="startDate" class="form-control" required /></div><div class="col-md-4"><label>End date</label><input type="date" name="endDate" class="form-control" required /></div><div class="col-md-2 align-self-end"><button class="btn btn-primary">Generate</button></div></form>
+@if (Model is not null) { <p>Total: <strong>@Model.Count</strong></p><table class="table table-bordered"><thead><tr><th>Article</th><th>Title</th><th>Created date</th></tr></thead><tbody>@foreach (var n in Model) { <tr><td>@n.NewsArticleId</td><td>@n.NewsTitle</td><td>@n.CreatedDate?.ToString("dd/MM/yyyy")</td></tr> }</tbody></table> }
